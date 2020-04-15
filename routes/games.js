@@ -6,13 +6,14 @@ const isLoggedIn = (req, res, next) => {
     res.redirect('/auth/google');
 }
 
-// GET /students
+// GET /users
 router.get('/', gamesCtrl.index);
+router.get('/new', isLoggedIn, gamesCtrl.new);
 
-// POST /facts
+// POST /games
 // We will already have access to the logged in student on
 // the server, therefore do not use: /students/:id/facts
-// router.post('/facts', isLoggedIn, studentsCtrl.addFact);
+router.post( '/', gamesCtrl.addGame);
 
 // // DELETE /facts/:id
 // router.delete('/facts/:id', studentsCtrl.delFact);

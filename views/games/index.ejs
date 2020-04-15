@@ -1,1 +1,31 @@
-<h1>Hello World! Games</h1>
+<%- include('../partials/header') %>
+
+<table id="list">
+  <thead>
+    <tr>
+      <th>Name:</th>
+      <th>Developer:</th>
+      <th>Publisher:</th>
+      <th>Platform:</th>
+      <th>Release Date:</th>
+      <th>Genre:</th>
+      <th>Reviews:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% games.forEach(function(m) { %>
+      <tr>
+        <td><%= m.name %></td>
+        <td><%= m.developer %></td>
+        <td><%= m.publisher %></td>
+        <td><%= m.platform %></td>
+        <td><%= m.releaseDate %></td>
+        <td><%= m.genre %></td>
+        <td><%= m.reviews %></td>
+        <td><a href="/games/<%= m._id %>">DETAILS</a></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  
+<%- include('../partials/footer') %>

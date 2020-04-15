@@ -1,42 +1,51 @@
 const Game = require('../models/game');
 
-function index(req, res, next) {
-  console.log(req.query)
-  // Make the query object to use with Student.find based up
-  // the user has submitted the search form or now
-  let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-  // Default to sorting by name
-  let sortKey = req.query.sort || 'name';
-  Game.find(modelQuery)
-  .sort(sortKey).exec(function(err, games) {
-    if (err) return next(err);
-    // Passing search values, name & sortKey, for use in the EJS
-    res.render('games/index', {
-      games,
-      user: req.user,
-      name: req.query.name,
-      sortKey });
-  });
+const index = (req, res, next) => {
+    Game.find({}, (err, games) => {
+      res.render('games/index', {
+        title: 'Games Index',
+        games,
+        user: req.user
+      })
+  })
 }
 
-// function addFact(req, res, next) {
-//   req.user.facts.push(req.body);
-//    req.user.save(function(err) {
-//      res.redirect('/games');
-//    });
-// }
+const show = (req, res) => {
+  Game.findById(req.params.id, (err, game) => {
+    res.render('games/show', {
+      title: 'Game Detail',
+      game})
+  })
+}
 
-// function delFact(req, res, next) {
-//   Student.findOne({'facts._id': req.params.id}, (err, student) => {
-//     student.facts.id(req.params.id).remove();
-//     student.save( (err) => {
-//       res.redirect('/students');
-//     })
-//   })
-// }
+const newGame = (req, res, next) => {
+  res.render('games/new', {
+    title: 'Add Game',
+    user: req.user
+  })
+}
 
-module.exports = {
-  index,
-  // addFact,
-  // delFact
-};
+const addGame = (req, res, next) => {
+  console.log(req.body)
+  var game = new Game(req.body);
+  game.save((err) => {
+    if (err) {
+      console.log(err)
+      return res.redirect('/games/new')
+      
+  } ;
+    
+    res.redirect('/games');
+  })
+  
+}
+
+  module.exports = {
+    index,
+    show,
+    new: newGame,
+    addGame
+
+    // addFact,
+    // delFact
+  };

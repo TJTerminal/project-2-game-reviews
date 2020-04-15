@@ -1,6 +1,7 @@
+//change every game and passport into user
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const Game = require('../models/game');
+const User = require('../models/user');
 
 passport.use(new GoogleStrategy(
     {
@@ -10,40 +11,40 @@ passport.use(new GoogleStrategy(
   },
   (accessToken, refreshToken, profile, cb) => {
     // a user has logged in with OAuth...
-    Game.findOne({ 'googleId': profile.id }, function(err, game) {
+    User.findOne({ 'googleId': profile.id }, function(err, user) {
         if (err) return cb(err);
-        if (game) {
-          if (!game.avatar) {
-            game.avatar = profile.photos[0].value;
-            game.save(function(err) {
-              return cb(null, game);
+        if (user) {
+          if (!user.avatar) {
+            user.avatar = profile.photos[0].value;
+            user.save(function(err) {
+              return cb(null, user);
             });
           } else {
-            return cb(null, game);
+            return cb(null, user);
           }
         } else {
             console.log(profile);
-          // we have a new student via OAuth!
-          var newGame = new Game({
+          // we have a new user via OAuth!
+          var newUser = new User({
             name: profile.displayName,
             email: profile.emails[0].value,
             googleId: profile.id
           });
-          newGame.save(function(err) {
+          newUser.save(function(err) {
             if (err) return cb(err);
-            return cb(null, newGame);
+            return cb(null, newUser);
           });
         }
       });
     }
 ));
 
-passport.serializeUser((game, done) => {
-    done(null, game.id);
+passport.serializeUser((user, done) => {
+    done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-    Game.findById(id, function(err, game) {
-      done(err, game);
+    User.findById(id, function(err, user) {
+      done(err, user);
     });
   });

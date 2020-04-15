@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 var reviewSchema = new Schema({
     content: String,
-    rating: {type: Number, min: 1, max: 5}
+    rating: {type: Number, min: 1, max: 10},
+    user: {type: Schema.Types.ObjectId, ref: 'User'}
   }, {
     timestamps: true
   });
@@ -15,9 +16,8 @@ const gameSchema = new Schema({
     platform: {type: String, require: true},
     releaseDate: {type: String, require: true},
     genre: {type: String},
-    reviews: [reviewSchema],
-    user: [{type: Schema.Types.ObjectId, ref: 'User'}]
-    
+    //reviews: [reviewSchema],
+    //user: [{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 
 module.exports = mongoose.model('Game', gameSchema);

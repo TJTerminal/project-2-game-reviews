@@ -8,7 +8,7 @@
    <!-- Google Icon Fonts used by Materialize -->
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <!-- Materialize CSS Framework -->
-   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <link rel="stylesheet" href="stylesheets/style.css">
    <!-- JavaScript for Materialize -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -17,11 +17,13 @@
 </head>
 <body>
   <nav>
+    <div class="light-blue"></div>
     <% if (user) { %>
       <a href="/reviews/new" <%- title === 'Add Reviews' ? 'class="active"' : '' %>>ADD REVIEWS</a>
       <a href="/games/new" <%- title === 'Add Game' ? 'class="active"' : '' %>>ADD GAME</a>
     <% } %>
     <a href="/games" <%- title === 'All Games' ? 'class="active"' : '' %>>ALL GAMES</a>
+
     
     <ul class="right">
       <li>

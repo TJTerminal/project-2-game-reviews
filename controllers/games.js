@@ -57,10 +57,39 @@ const delGame = (req, res) => {
   });
 }
 
+// EDIT
+// /movies/5e5a93cd12675b4c0efcb17e/edit
+const edit = (req, res) => {
+  Game.findById(req.params.id, (err, game) => {
+    console.log("Found game:", game);
+    res.render("./games/edit.ejs", {
+      title: "Edit game",
+      game: game,
+      user: req.user
+    });
+  });
+}
+
+// PUT/UPDATE
+const update = (req, res) => {
+  Game.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, game) => {
+      // Redirect to movie show page:
+      res.redirect(`/games/${game._id}`);
+    }
+  );
+}
+
+
   module.exports = {
     index,
     show,
     new: newGame,
     addGame,
-    delGame
+    delGame,
+    edit,
+    update
   };

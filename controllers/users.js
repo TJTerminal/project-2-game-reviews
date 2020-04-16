@@ -22,17 +22,6 @@ const index = (req, res, next) => {
 
 
 
-// function delFact(req, res, next) {
-//   Student.findOne({'facts._id': req.params.id}, (err, student) => {
-//     student.facts.id(req.params.id).remove();
-//     student.save( (err) => {
-//       res.redirect('/students');
-//     })
-//   })
-// }
-
 module.exports = {
-  index,
-  
-  // delFact
+  index
 };

@@ -17,43 +17,40 @@
   <div><%= game.reviews %></div>
 </section>
 
-
-
-<form id="add-per-to-cast" action="/movies/<%= movie._id%>/performers" method="POST">
-  <select name="performerId">
-    <%- performers.map(p => `<option value="${p._id}">${p.name}</option>`).join('') %>
-  </select>
-  <button type="submit">Add to Cast</button>
-</form>
-
-<br><br><h2>Reviews</h2>
+<br><br>
+<h2>Reviews</h2>
 <form id="add-review-form" method="POST"
-  action="/movies/<%= movie._id %>/reviews">
+  action="/games/<%= game._id %>/reviews">
   <label>Review:</label>
   <textarea name="content"></textarea>
   <label>Rating:</label>
-  <select name="rating">
+  <select name="rating" id="score">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
     <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
   </select>
   <input type="submit" value="Add Review">
 </form>
 
-<% if (movie.reviews.length) { %>
+<% if (game.reviews.length) { %>
   <table>
     <thead>
       <tr>
-      	 <th>Date</th>
+      	<th>Date</th>
         <th>Review</th>
         <th>Rating</th>
       </tr>
     </thead>
     <tbody>
       <% var total = 0 %>
-      <% movie.reviews.forEach(function(r) { %>
+      <% game.reviews.forEach(function(r) { %>
         <% total += r.rating %>
         <tr>
           <td><%= r.createdAt.toLocaleDateString() %></td>
@@ -63,13 +60,12 @@
         <% }); %>
         <tr>
           <td colspan="2"></td>
-          <td><strong><%= (total / movie.reviews.length).toFixed(1) %></strong></td>
+          <td><strong><%= (total / game.reviews.length).toFixed(1) %></strong></td>
         </tr>
     </tbody>
   </table>
 <% } else { %>
   <h5>No Reviews Yet</h5>
 <% } %>
-
 
 <%- include('../partials/footer') %>

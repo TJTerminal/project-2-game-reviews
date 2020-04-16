@@ -16,8 +16,11 @@ const gameSchema = new Schema({
     platform: {type: String, require: true},
     releaseDate: {type: String, require: true},
     genre: {type: String},
-    //reviews: [reviewSchema],
-    //user: [{type: Schema.Types.ObjectId, ref: 'User'}]
+    reviews: [reviewSchema],
+    user: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'}],
+    avg: {type: Number}
 });
 
 module.exports = mongoose.model('Game', gameSchema);

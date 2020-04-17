@@ -1,6 +1,6 @@
 # App Title:
 project-2-game-reviews
-
+Enter games into the list and rate them. Users must log in using their Google Account and they can create, edit, and delete the games.
 
 # Screenshots:
 Screen Shot 2020-04-16 at 9.02.53 PM

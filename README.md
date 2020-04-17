@@ -16,7 +16,8 @@ full-CRUD data
 Google OAuth authentication
 
 # Getting Started:
-https://trello.com/b/4zpetoF9/project-2-game-reviews
+Trello Board: https://trello.com/b/4zpetoF9/project-2-game-reviews
+Heroku: https://game-reviews-p2.herokuapp.com/games
 
 # Next Steps:
 Add Favorites Option for Users

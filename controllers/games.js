@@ -16,7 +16,7 @@ const index = (req, res, next) => {
       res.render('games/index', {
         title: 'Games Index',
         games,
-        user: req.user,
+        user: req.user
       })
   })
 }
@@ -41,6 +41,7 @@ const newGame = (req, res, next) => {
 const addGame = (req, res, next) => {
   console.log(req.body)
   var game = new Game(req.body);
+  game.user.push(req.user)
   game.save((err) => {
     if (err) {
       console.log(err)

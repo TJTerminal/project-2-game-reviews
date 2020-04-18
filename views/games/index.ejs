@@ -23,13 +23,17 @@
         <td><%= m.genre %></td>
         <td><%= m.avg %></td>
         <td><a href="/games/<%= m._id %>">DETAILS</a></td>
-
+        <% if (user) { %>
+        <% if (m.user.includes(user._id)) { %>
+          
         <td><a href="/games/<%= m._id %>/edit">EDIT GAMES</a></td>
         <td>
             <form action="/games/<%= m._id %>?_method=DELETE" method="POST" class="secondary-content">
               <button type="submit" class="btn-small red-text">X</button>
             </form>
         </td>
+        <% } %>
+        <% } %>
       </tr>
       <% }); %>
     </tbody>

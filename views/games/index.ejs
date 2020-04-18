@@ -26,11 +26,9 @@
 
         <td><a href="/games/<%= m._id %>/edit">EDIT GAMES</a></td>
         <td>
-            
-              <form action="/games/<%= m._id %>?_method=DELETE" method="POST" class="secondary-content">
-                <button type="submit" class="btn-small red-text">X</button>
-              </form>
-
+            <form action="/games/<%= m._id %>?_method=DELETE" method="POST" class="secondary-content">
+              <button type="submit" class="btn-small red-text">X</button>
+            </form>
         </td>
       </tr>
       <% }); %>

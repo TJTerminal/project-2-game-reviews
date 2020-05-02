@@ -2,17 +2,17 @@
 
 <form id="edit-form" action="/games/<%=game.id%>?_method=PUT" method="POST">
     <label>Name:</label>
-    <input type="text" name="name">
+    <input type="text" name="name" value="game.name">
     <label>Developer:</label>
-    <input type="text" name="developer">
+    <input type="text" name="developer" value="game.developer">
     <label>Publisher:</label>
-    <input type="text" name="publisher">
+    <input type="text" name="publisher" value="game.publisher">
     <label>Platform:</label>
-    <input type="text" name="platform">
+    <input type="text" name="platform" value="game.platform">
     <label>Release Date:</label>
-    <input type="date" name="releaseDate">
+    <input type="date" name="releaseDate" value="game.date">
     <label>Genre:</label>
-    <input type="text" name="genre">
+    <input type="text" name="genre" value="game.genre">
     
     <input type="submit" value="Edit Game">
 </form>

@@ -3,6 +3,8 @@ project-2-game-reviews
 
 
 # Screenshots:
+![](desktop/pictures/project-2-pictures/Screen Shot 2020-04-16 at 8.56.42 PM)
+
 
 # Technologies Used:
 mongodb

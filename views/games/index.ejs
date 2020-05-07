@@ -24,7 +24,7 @@
         <td><%= m.avg %></td>
         <td><a href="/games/<%= m._id %>">DETAILS</a></td>
         <% if (user) { %>
-        <% if (m.user.includes(user._id)) { %>
+        <!-- <% if (m.user.includes(user._id)) { %> -->
           
         <td><a href="/games/<%= m._id %>/edit">EDIT GAMES</a></td>
         <td>
@@ -33,7 +33,7 @@
             </form>
         </td>
         <% } %>
-        <% } %>
+        <!-- <% } %> -->
       </tr>
       <% }); %>
     </tbody>

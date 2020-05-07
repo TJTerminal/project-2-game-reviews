@@ -3,7 +3,9 @@ project-2-game-reviews
 
 
 # Screenshots:
-![](desktop/pictures/project-2-pictures/Screen Shot 2020-04-16 at 8.56.42 PM)
+![](desktop/pictures/project-2-pictures/index-page)
+![](desktop/pictures/project-2-pictures/add-game)
+![](desktop/pictures/project-2-pictures/detail-page)
 
 
 # Technologies Used:

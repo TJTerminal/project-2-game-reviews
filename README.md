@@ -1,24 +1,14 @@
 # App Title:
 project-2-game-reviews
-<<<<<<< HEAD
 Enter games into the list and rate them. Users must log in using Google Account and they can create, edit, and delete games.
 
 
 # Screenshots:
-![](desktop/pictures/project-2-pictures/index-page)
-![](desktop/pictures/project-2-pictures/add-game)
-![](desktop/pictures/project-2-pictures/detail-page)
+![](picture/index-page)
+![](picture/add-game)
+![](picture/detail-page)
 
 
-=======
-Enter games into the list and rate them. Users must log in using their Google Account and they can create, edit, and delete the games.
-
-# Screenshots:
-Screen Shot 2020-04-16 at 9.02.53 PM
-Screen Shot 2020-04-16 at 9.02.36 PM
-Screen Shot 2020-04-16 at 9.01.59 PM
-Screen Shot 2020-04-16 at 8.56.42 PM
->>>>>>> b54fb8b4c303d27cf1ed1e8770549b88afb8220f
 # Technologies Used:
 mongodb
 node.js

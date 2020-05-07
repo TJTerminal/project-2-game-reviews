@@ -23,3 +23,4 @@ Heroku: https://game-reviews-p2.herokuapp.com/games
 
 # Next Steps:
 Add Favorites Option for Users
+Add other icebox

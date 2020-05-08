@@ -4,9 +4,9 @@ Enter games into the list and rate them. Users must log in using Google Account 
 
 
 # Screenshots:
-![](picture/index-page)
-![](picture/add-game)
-![](picture/detail-page)
+![index page](picture/index-page)
+![add game page](picture/add-game)
+![detail page](picture/detail-page)
 
 
 # Technologies Used:
